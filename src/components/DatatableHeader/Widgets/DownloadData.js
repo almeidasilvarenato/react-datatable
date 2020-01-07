@@ -71,7 +71,9 @@ export class DownloadData extends Component {
     if (fileType === "csv") {
       const json2csvParser = new Json2csvParser({ columns });
       const csv = json2csvParser.parse(data);
-      hiddenElement.href = `data:text/csv;charset=utf-8,${encodeURI(csv)}`;
+      hiddenElement.href = `data:text/csv;charset=utf-8,%EF%BB%BF${encodeURI(
+        csv
+      )}`;
       hiddenElement.target = "_blank";
       hiddenElement.download = `${fileName}.csv`;
     } else {
